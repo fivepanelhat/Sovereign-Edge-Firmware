@@ -16,6 +16,11 @@ extern String getEdgeToken();
 WiFiClientSecure espClient;
 PubSubClient mqttClient(espClient);
 
+// Circuit Breaker Variables
+int connectionAttempts = 0;
+const int MAX_ATTEMPTS = 5;
+unsigned long initialBackoffMs = 5000; // Start with 5 seconds
+
 void setupMQTT() {
     // 1. Load the Root CA to verify Weaver's identity
     espClient.setCACert(CA_CERT);
@@ -33,21 +38,37 @@ void setupMQTT() {
 
 void connectToWeaver() {
     while (!mqttClient.connected()) {
-        Serial.print("Initiating mTLS connection to Weaver...");
+        if (connectionAttempts >= MAX_ATTEMPTS) {
+            Serial.println("\n[CRITICAL] Max connection attempts breached. Tripping circuit breaker!");
+            Serial.println("Entering Deep Sleep for 1 hour to preserve battery bank...");
+            
+            // 3600 seconds = 1 hour. Convert to microseconds for ESP32
+            uint64_t sleepDurationUS = 3600ULL * 1000000ULL;
+            ESP.deepSleep(sleepDurationUS);
+        }
+
+        Serial.printf("\n[mTLS] Attempting secure handshake with Weaver (Attempt %d/%d)...\n", 
+                      connectionAttempts + 1, MAX_ATTEMPTS);
         
         // The Handshake: We still pass the JWT as an extra application-layer check
         String jwt = getEdgeToken();
         if (mqttClient.connect("ManaKai_Sensor_01", "edge_node", jwt.c_str())) {
-            Serial.println("Secure mTLS Tunnel Established!");
+            Serial.println("[SUCCESS] Secure mTLS Tunnel Established!");
+            connectionAttempts = 0; // Reset counter on successful link
         } else {
-            Serial.print("Failed, state: ");
-            Serial.print(mqttClient.state());
-            // A state of -2 usually means the certificate verification failed
-            Serial.println(" Retrying in 5 seconds...");
-            delay(5000);
+            connectionAttempts++;
+            
+            // Calculate exponential backoff delay: initialDelay * 2^(attempts-1)
+            unsigned long currentBackoff = initialBackoffMs * (1 << (connectionAttempts - 1));
+            
+            Serial.printf("[FAILURE] MQTT State: %d. Retrying in %lu seconds...\n", 
+                          mqttClient.state(), currentBackoff / 1000);
+            
+            delay(currentBackoff);
         }
     }
 }
+
 
 void publishSensorData(float soilMoisture) {
     if (!mqttClient.connected()) {
