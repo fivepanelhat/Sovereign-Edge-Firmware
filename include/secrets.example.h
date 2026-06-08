@@ -13,3 +13,27 @@ const char* PORTAL_IP = "192.168.x.x";
 const char* WEAVER_MQTT_IP = "192.168.x.x";
 const int WEAVER_MQTT_PORT = 1883;
 
+// --- WEAVER mTLS CERTIFICATES ---
+
+// 1. The Root CA that signed Weaver's broker certificate
+const char* CA_CERT = R"EOF(
+-----BEGIN CERTIFICATE-----
+MIID... (Paste your CA cert here)
+-----END CERTIFICATE-----
+)EOF";
+
+// 2. The ESP32's unique client certificate
+const char* CLIENT_CERT = R"EOF(
+-----BEGIN CERTIFICATE-----
+MIID... (Paste your client cert here)
+-----END CERTIFICATE-----
+)EOF";
+
+// 3. The ESP32's private key (KEEP THIS SAFE)
+const char* CLIENT_KEY = R"EOF(
+-----BEGIN RSA PRIVATE KEY-----
+MIIE... (Paste your private key here)
+-----END RSA PRIVATE KEY-----
+)EOF";
+
+
