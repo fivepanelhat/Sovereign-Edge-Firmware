@@ -1,5 +1,9 @@
 # Sovereign-Edge-Firmware
 
+[![License](https://img.shields.io/badge/License-Proprietary--Commercial-blue?style=flat-square)](LICENSE)  
+[![Sovereignty: Offline Native](https://img.shields.io/badge/Sovereignty-Offline%20Native-green.svg)]()  
+[![Interop](https://img.shields.io/badge/Interop-MQTT%20%7C%20OPC--UA-orange?style=flat-square)]()
+
 **Coastal Alpine Tech Limited**
 Firmware repository for ESP32 edge nodes operating within the Sovereign AI Stack. 
 
