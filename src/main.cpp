@@ -1,33 +1,27 @@
 #include <Arduino.h>
-#include <WiFi.h>
 #include "edge_auth.h"
-
-#if __has_include("secrets.h")
-#include "secrets.h"
-#else
-#include "secrets.example.h"
-#endif
+#include "edge_mqtt.h"
 
 void setup() {
-  Serial.begin(115200);
-  delay(1000);
-
-  // Connect to Local Sovereign Network
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  Serial.print("Connecting to Network: ");
-  Serial.println(WIFI_SSID);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println("\nConnected to Sovereign Network.");
-
-  // Authenticate edge node
-  setupEdgeAuth();
+    Serial.begin(115200);
+    
+    // 1. Connect to Wi-Fi & get the JWT from the Portal
+    connectSovereignNetwork();
+    authenticateWithPortal();
+    
+    // 2. Prep the MQTT client
+    setupMQTT();
 }
 
 void loop() {
-  // Sensor logic & telemetry transmission goes here
-  delay(5000);
+    // Mocking a sensor reading from the microgreens
+    float currentMoisture = 65.4; 
+    
+    publishSensorData(currentMoisture);
+    
+    // Deep sleep for 10 minutes to save battery
+    // ESP.deepSleep(600e6); 
+    delay(10000); // Using delay for testing purposes
 }
+
+
