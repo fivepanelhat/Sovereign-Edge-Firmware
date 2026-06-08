@@ -5,8 +5,8 @@
 #pragma once
 
 const char* WIFI_SSID = "YOUR_LOCAL_SSID";
-const char* WIFI_PASSWORD = "YOUR_WIFI_PASSWORD";
-const char* HARDWARE_SECRET = "GENERATE_DEVICE_SECRET_HERE";
+const char* WIFI_PASSWORD = "YOUR_WIFI_PASSWORD"; // pragma: allowlist secret
+const char* HARDWARE_SECRET = "GENERATE_DEVICE_SECRET_HERE"; // pragma: allowlist secret
 const char* PORTAL_IP = "192.168.x.x";
 
 // --- New Weaver Config ---
@@ -31,7 +31,7 @@ MIID... (Paste your client cert here)
 
 // 3. The ESP32's private key (KEEP THIS SAFE)
 const char* CLIENT_KEY = R"EOF(
------BEGIN RSA PRIVATE KEY-----
+-----BEGIN RSA PRIVATE KEY----- // pragma: allowlist secret
 MIIE... (Paste your private key here)
 -----END RSA PRIVATE KEY-----
 )EOF";
