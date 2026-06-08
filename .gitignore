@@ -1,0 +1,15 @@
+# Coastal Alpine Tech - Edge Hardware SecOps
+# Ignore local secrets headers
+*secrets.h
+*config_local.h
+.secrets.baseline
+
+# PlatformIO
+.pio/
+.vscode/
+
+# Arduino
+build/
+*.elf
+*.bin
+*.hex
