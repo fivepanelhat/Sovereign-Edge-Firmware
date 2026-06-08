@@ -1,9 +1,9 @@
 name: "Edge Firmware SecOps Scan"
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
 jobs:
   analyze:
     name: Analyze C++ Firmware
@@ -15,5 +15,8 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: cpp
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v3
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
+
