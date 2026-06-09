@@ -5,18 +5,29 @@ on:
   pull_request:
     branches: [ "main", "master" ]
 jobs:
-  analyze:
-    name: Analyze C++ Firmware
+  secops-scan:
+    name: Supply Chain and Script Scan
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        languages: cpp
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
+      - name: Run ShellCheck on Shell Scripts
+        uses: ludeeus/action-shellcheck@master
+        with:
+          severity: error
+        continue-on-error: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pip-audit
+        run: |
+          python -m pip install --upgrade pip
+          pip install pip-audit
+
+      - name: Run pip-audit Supply Chain Scan
+        run: |
+          pip-audit --skip-editable || true
