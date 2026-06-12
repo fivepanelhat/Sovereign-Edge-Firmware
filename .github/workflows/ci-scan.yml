@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 */8 * * *"
   push:
-    branches: [ master, main ]
+    branches: [ main ]
   pull_request:
     types: [ opened, synchronize, reopened ]
 permissions:
