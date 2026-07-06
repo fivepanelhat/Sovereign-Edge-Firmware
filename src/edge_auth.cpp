@@ -14,9 +14,33 @@
 // NVS Storage object
 static Preferences preferences;
 static String localJWT = "";
+static bool nvsReady = false;
+
+static void ensureNvs() {
+  if (!nvsReady) {
+    preferences.begin("auth", false);
+    nvsReady = true;
+  }
+}
+
+void connectSovereignNetwork() {
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  Serial.print("Connecting to sovereign network");
+  // ~30s cap so a dead AP doesn't hang boot forever
+  for (int i = 0; i < 60 && WiFi.status() != WL_CONNECTED; i++) {
+    delay(500);
+    Serial.print(".");
+  }
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.printf("\nWi-Fi connected. IP: %s\n", WiFi.localIP().toString().c_str());
+  } else {
+    Serial.println("\n[WARN] Wi-Fi connection timed out; auth will be skipped until reconnect.");
+  }
+}
 
 void setupEdgeAuth() {
-  preferences.begin("auth", false);
+  ensureNvs();
   localJWT = preferences.getString("jwt", "");
 
   if (localJWT == "") {
@@ -53,16 +77,20 @@ void authenticateWithPortal() {
 
     if (httpResponseCode == 200) {
       String response = http.getString();
-      
+
       // Parse the incoming JWT
       StaticJsonDocument<512> responseDoc;
-      deserializeJson(responseDoc, response);
+      DeserializationError err = deserializeJson(responseDoc, response);
       const char* token = responseDoc["accessToken"];
-      
-      localJWT = String(token);
-      preferences.putString("jwt", localJWT);
-      
-      Serial.println("Authentication successful. JWT saved to secure storage.");
+
+      if (!err && token != nullptr) {
+        localJWT = String(token);
+        ensureNvs(); // NVS must be begun before any write
+        preferences.putString("jwt", localJWT);
+        Serial.println("Authentication successful. JWT saved to secure storage.");
+      } else {
+        Serial.println("Authentication response missing/invalid accessToken.");
+      }
     } else {
       Serial.print("Authentication failed. HTTP status code: ");
       Serial.println(httpResponseCode);

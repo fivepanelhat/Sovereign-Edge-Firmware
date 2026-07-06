@@ -5,9 +5,12 @@
 void setup() {
     Serial.begin(115200);
     
-    // 1. Connect to Wi-Fi & get the JWT from the Portal
+    // 1. Connect to Wi-Fi & get the JWT from the Portal.
+    // setupEdgeAuth initialises NVS then reuses a stored JWT or
+    // authenticates; calling authenticateWithPortal directly wrote to
+    // NVS before Preferences.begin() had ever run.
     connectSovereignNetwork();
-    authenticateWithPortal();
+    setupEdgeAuth();
     
     // 2. Prep the MQTT client
     setupMQTT();
