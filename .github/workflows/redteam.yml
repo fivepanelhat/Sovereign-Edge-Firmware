@@ -3,6 +3,9 @@ on:
   schedule:
     - cron: "0 */8 * * *"
   workflow_dispatch:
+concurrency:
+  group: redteam-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -22,6 +25,7 @@ jobs:
         # Replaces the previous job, which apt-installed a package that no
         # longer exists on ubuntu-latest (zaproxy) and pointed ZAP at
         # https://example.com — a third-party site we must not scan.
+        shell: bash
         run: |
           if compgen -G "tests_security_stress/test_*.py" > /dev/null; then
             python -m pip install --upgrade pip
