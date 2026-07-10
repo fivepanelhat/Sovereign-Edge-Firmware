@@ -26,7 +26,7 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 | Component | Model & Details |
 | --- | --- |
 | **Microcontroller** | Keyestudio ESP32 (XC3800) |
-| **Local Server** | Raspberry Pi 5 (arm64) + AI HAT 2+ |
+| **Local Server** | Raspberry Pi 5 **16GB** (arm64) + AI HAT+ 2 (**Hailo-10H**, 40 TOPS) |
 | **Temp/Humidity** | DHT11 (XC4520) |
 | **Rain Sensor** | Duinotech Rain Sensor (XC4603) |
 
