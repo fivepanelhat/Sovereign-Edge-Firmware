@@ -83,3 +83,7 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 For the full consolidated setup guide, see [garden-sensor-network-setup.md](../docs/garden-sensor-network-setup.md).
 
 Wayne Roberts, Coastal Alpine Tech Limited
+
+## License
+
+Proprietary — Coastal Alpine Tech Limited. See [LICENSE](./LICENSE).
