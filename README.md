@@ -1,5 +1,8 @@
 # Sovereign Edge Firmware
 
+![Banner](assets/social_preview.png)
+
+
 **Coastal Alpine Tech Limited**
 
 
