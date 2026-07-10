@@ -8,8 +8,65 @@
 
 Firmware repository for ESP32 edge nodes operating within the Sovereign AI Stack. 
 
-## Architecture
-This firmware is designed to operate completely off-grid, utilizing local ES256 JWT authentication via the Blue-Moon-Portal, communicating over mTLS-secured MQTT.
+## Architecture Overview
+
+Field nodes run on **ESP32** with mTLS MQTT into a **Raspberry Pi 5 16GB** hub (AI HAT+ 2 / Hailo-10H capable). Sensor data stays on the local sovereign network.
+
+![Sovereign Edge Firmware architecture — liquid glass overview](assets/architecture_overview.png)
+
+### System map
+
+```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "fontSize": "16px",
+    "fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif",
+    "primaryColor": "#0ea5e9",
+    "primaryTextColor": "#f8fafc",
+    "primaryBorderColor": "#38bdf8",
+    "lineColor": "#67e8f9",
+    "secondaryColor": "#1e293b",
+    "tertiaryColor": "#0f172a",
+    "clusterBkg": "#0b1220cc",
+    "clusterBorder": "#38bdf880",
+    "titleColor": "#e2e8f0"
+  },
+  "flowchart": {
+    "nodeSpacing": 40,
+    "rankSpacing": 48,
+    "padding": 20,
+    "htmlLabels": true,
+    "curve": "basis"
+  }
+}}%%
+flowchart LR
+
+    classDef sense fill:#052e16,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
+    classDef edge fill:#0c4a6e,stroke:#38bdf8,stroke-width:2px,color:#f0f9ff
+    classDef core fill:#134e4a,stroke:#2dd4bf,stroke-width:2px,color:#f0fdfa
+    classDef act fill:#422006,stroke:#fbbf24,stroke-width:2px,color:#fffbeb
+    classDef store fill:#1e1b4b,stroke:#a5b4fc,stroke-width:2px,color:#eef2ff
+    classDef ai fill:#3b0764,stroke:#e879f9,stroke-width:2px,color:#fdf4ff
+    classDef app fill:#1e1b4b,stroke:#c4b5fd,stroke-width:2px,color:#eef2ff
+
+    S["Sensors<br/>DHT · rain · probes"] --> ESP["ESP32 firmware<br/>mTLS · JWT"]
+    ESP --> MQTT["Mosquitto broker"]
+    MQTT --> PI["RPi 5 16GB hub<br/>Node-RED · InfluxDB"]
+    PI --> PORTAL["Portals / Weaver<br/>optional consumers"]
+
+    class S sense
+    class ESP act
+    class MQTT,PI edge
+    class PORTAL core
+```
+
+| Layer | Components | Role |
+| :--- | :--- | :--- |
+| **Node** | ESP32 + sensors | Field capture |
+| **Security** | mTLS + local JWT | No open MQTT |
+| **Hub** | RPi 5 16GB | Broker · DB · UI |
+| **Consumers** | Portals / Weaver | Edge AI stack |
 
 ## SecOps Notice
 Never commit `secrets.h` to this repository. All physical node configurations must remain local to the deployment site.
