@@ -3,12 +3,14 @@
 ![Banner](assets/social_preview.png)
 
 
-**Coastal Alpine Tech Limited**
+**Coastal Alpine Tech Limited** — pre-seed startup, New Plymouth, Taranaki, Aotearoa New Zealand.
 
 
 Firmware repository for ESP32 edge nodes operating within the Sovereign AI Stack. 
 
 ## Architecture Overview
+
+> **Diagrams:** Architecture images and Mermaid maps describe the **target product architecture** for this pre-seed stack. They are engineering design maps — not claims of large-scale commercial fleet deployment.
 
 Field nodes run on **ESP32** with mTLS MQTT into a **Raspberry Pi 5 16GB** hub (AI HAT+ 2 / Hailo-10H capable). Sensor data stays on the local sovereign network.
 
