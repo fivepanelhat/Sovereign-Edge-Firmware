@@ -131,7 +131,7 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 
 ---
 
-For the full consolidated setup guide, see [garden-sensor-network-setup.md](../docs/garden-sensor-network-setup.md).
+For the full consolidated setup guide, see `garden-sensor-network-setup.md` (not yet published — the previous link pointed to a non-existent path).
 
 Wayne Roberts, Coastal Alpine Tech Limited
 
