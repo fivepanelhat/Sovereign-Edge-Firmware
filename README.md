@@ -1,5 +1,28 @@
 # Sovereign Edge Firmware
 
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary--Commercial-blue.svg)](./LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-ESP32%20%2B%20RPi%205-0078D6)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
+[![Arduino](https://img.shields.io/badge/Build-Arduino%20%7C%20PlatformIO-00979D?logo=platformio&logoColor=white)](https://platformio.org)
+
+[![Linux](https://img.shields.io/badge/Linux-Ubuntu%2C%20Debian%2C%20Fedora-FCC624?logo=linux&logoColor=black)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
+[![Windows](https://img.shields.io/badge/Windows-10%2B-0078D4?logo=windows&logoColor=white)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
+[![macOS](https://img.shields.io/badge/macOS-12%2B-000000?logo=apple&logoColor=white)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
+[![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-5%20%2816GB%29-C11A5B?logo=raspberry-pi&logoColor=white)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
+
+[![Claude AI](https://img.shields.io/badge/Claude-Anthropic-9C27B0)](https://anthropic.com)
+[![Gemini](https://img.shields.io/badge/Gemini-Google-4285F4?logo=google&logoColor=white)](https://gemini.google.com)
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-00A67E)](https://openai.com)
+[![Grok](https://img.shields.io/badge/Grok-xAI-000000)](https://x.ai)
+
+[![Hailo NPU](https://img.shields.io/badge/NPU-Hailo--10H-005A9C)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
+[![MQTT](https://img.shields.io/badge/MQTT-Mosquitto%20mTLS-3C5280?logo=mqtt&logoColor=white)](https://mosquitto.org)
+[![Data Sovereign](https://img.shields.io/badge/Data%20Sovereign-NZ%20Bound-00247D)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
+
+[![CI Status](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/ci-scan.yml/badge.svg?branch=master)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/ci-scan.yml)
+[![SecOps](https://img.shields.io/github/actions/workflow/status/fivepanelhat/Sovereign-Edge-Firmware/secops.yml?branch=master&label=SecOps&color=success)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/secops.yml)
+[![RedTeam](https://img.shields.io/github/actions/workflow/status/fivepanelhat/Sovereign-Edge-Firmware/redteam.yml?branch=master&label=RedTeam&color=critical)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/redteam.yml)
+[![Dependencies](https://img.shields.io/badge/Dependencies-Monitored-brightgreen?logo=dependabot)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/security/dependabot)
+
 ![Banner](assets/social_preview.png)
 
 
@@ -138,21 +161,3 @@ Wayne Roberts, Coastal Alpine Tech Limited
 ## License
 
 Proprietary — Coastal Alpine Tech Limited. See [LICENSE](./LICENSE).
-
----
-
-## Project badges
-
-Status badges for this repository (CI, security, license, and stack metadata):
-
-[![License](https://img.shields.io/badge/License-Proprietary--Commercial-blue?style=flat-square)](LICENSE)  
-[![Platform](https://img.shields.io/badge/Platform-ESP32%20%2B%20RPi%205-blue?style=flat-square)]()  
-[![Hardware Target](https://img.shields.io/badge/Hardware-Raspberry%20Pi%205%2016GB-C11A5B?style=flat-square&logo=raspberry-pi&logoColor=white)]()  
-[![NPU Acceleration](https://img.shields.io/badge/NPU-Hailo--10H%20Accelerated-005A9C?style=flat-square)]()  
-[![Sovereignty](https://img.shields.io/badge/Sovereignty-NZ%20Data%20Bound-00247D?style=flat-square)]()  
-[![CI](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/ci-scan.yml/badge.svg?branch=master)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/ci-scan.yml)  
-[![SecOps](https://img.shields.io/github/actions/workflow/status/fivepanelhat/Sovereign-Edge-Firmware/secops.yml?branch=master&label=SecOps&style=flat-square&color=success)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/secops.yml)  
-[![RedTeam](https://img.shields.io/github/actions/workflow/status/fivepanelhat/Sovereign-Edge-Firmware/redteam.yml?branch=master&label=RedTeam&style=flat-square&color=critical)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/redteam.yml)  
-[![Dependabot](https://img.shields.io/badge/Dependencies-Monitored-brightgreen?style=flat-square&logo=dependabot)]()  
-[![Interop](https://img.shields.io/badge/Interop-MQTT%20%7C%20OPC--UA-orange?style=flat-square)]()  
-[![Sustainability](https://img.shields.io/badge/EECA%20NZ-Carbon%20Tracked-green?style=flat-square)]()
