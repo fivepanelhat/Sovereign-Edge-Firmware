@@ -8,12 +8,12 @@
 [![HITL](https://img.shields.io/badge/HITL-Draft%2FPrepare%20only-dc2626)](./.github/agent-fleet/AGENTS.md)
 [![Te Mana Raraunga](https://img.shields.io/badge/Te%20Mana%20Raraunga-Aligned-0f766e)](https://github.com/fivepanelhat/fivepanelhat)
 
-**Part of the [Kiwi Edge AI Stack](https://github.com/fivepanelhat/fivepanelhat)** · Founder OS: [NZ-Start-Up](https://github.com/fivepanelhat/NZ-Start-Up) · Agent policy: [`.github/agent-fleet/`](./.github/agent-fleet/)
+**Part of the [Kiwi Edge AI Stack](https://github.com/fivepanelhat/fivepanelhat)** | Founder OS: [NZ-Start-Up](https://github.com/fivepanelhat/NZ-Start-Up) | Agent policy: [`.github/agent-fleet/`](./.github/agent-fleet/)
 
-> Sovereign hybrid edge AI for NZ farms & founders — local-first + multi-model, Te Mana Raraunga aligned — collaborating with Venture Taranaki, startups.com investors & Kotahitanga Investment Fund (HITL + cultural advisory for formal approaches).
+> Sovereign hybrid edge AI for NZ farms and founders - local-first + multi-model, Te Mana Raraunga aligned - collaborating with Venture Taranaki, startups.com investors and Kotahitanga Investment Fund (HITL + cultural advisory for formal approaches).
 
 **Agents inform, draft, prepare, monitor, and remind. Humans advise, sign, file, send, and pay.**  
-Anti-hallucination policy: [`.github/agent-fleet/anti-hallucination.md`](./.github/agent-fleet/anti-hallucination.md) · Congruence: [`CAT_CONGRUENCE.md`](./CAT_CONGRUENCE.md)
+Anti-hallucination policy: [`.github/agent-fleet/anti-hallucination.md`](./.github/agent-fleet/anti-hallucination.md) | Congruence: [`CAT_CONGRUENCE.md`](./CAT_CONGRUENCE.md)
 <!-- END CAT_CONGRUENCE_SNIPPET -->
 
 
@@ -43,18 +43,18 @@ Anti-hallucination policy: [`.github/agent-fleet/anti-hallucination.md`](./.gith
 ![Banner](assets/social_preview.png)
 
 
-**Coastal Alpine Tech Limited** â€” pre-seed startup, New Plymouth, Taranaki, Aotearoa New Zealand.
+**Coastal Alpine Tech Limited**  pre-seed startup, New Plymouth, Taranaki, Aotearoa New Zealand.
 
 
-Firmware repository for ESP32 edge nodes operating within the Sovereign AI Stack. 
+Firmware repository for ESP32 edge nodes operating within the Sovereign AI Stack.
 
 ## Architecture Overview
 
-> **Diagrams:** Architecture images and Mermaid maps describe the **target product architecture** for this pre-seed stack. They are engineering design maps â€” not claims of large-scale commercial fleet deployment.
+> **Diagrams:** Architecture images and Mermaid maps describe the **target product architecture** for this pre-seed stack. They are engineering design maps  not claims of large-scale commercial fleet deployment.
 
 Field nodes run on **ESP32** with mTLS MQTT into a **Raspberry Pi 5 16GB** hub (AI HAT+ 2 / Hailo-10H capable). Sensor data stays on the local sovereign network.
 
-![Sovereign Edge Firmware architecture â€” liquid glass overview](assets/architecture_overview.png)
+![Sovereign Edge Firmware architecture  liquid glass overview](assets/architecture_overview.png)
 
 ### System map
 
@@ -92,9 +92,9 @@ flowchart LR
     classDef ai fill:#3b0764,stroke:#e879f9,stroke-width:2px,color:#fdf4ff
     classDef app fill:#1e1b4b,stroke:#c4b5fd,stroke-width:2px,color:#eef2ff
 
-    S["Sensors<br/>DHT Â· rain Â· probes"] --> ESP["ESP32 firmware<br/>mTLS Â· JWT"]
+    S["Sensors<br/>DHT | rain | probes"] --> ESP["ESP32 firmware<br/>mTLS | JWT"]
     ESP --> MQTT["Mosquitto broker"]
-    MQTT --> PI["RPi 5 16GB hub<br/>Node-RED Â· InfluxDB"]
+    MQTT --> PI["RPi 5 16GB hub<br/>Node-RED | InfluxDB"]
     PI --> PORTAL["Portals / Weaver<br/>optional consumers"]
 
     class S sense
@@ -103,12 +103,12 @@ flowchart LR
     class PORTAL core
 ```
 
-| Layer | Components | Role |
-| :--- | :--- | :--- |
-| **Node** | ESP32 + sensors | Field capture |
-| **Security** | mTLS + local JWT | No open MQTT |
-| **Hub** | RPi 5 16GB | Broker Â· DB Â· UI |
-| **Consumers** | Portals / Weaver | Edge AI stack |
+ | Layer | Components | Role |
+ | :--- | :--- | :--- |
+ | **Node** | ESP32 + sensors | Field capture |
+ | **Security** | mTLS + local JWT | No open MQTT |
+ | **Hub** | RPi 5 16GB | Broker | DB | UI |
+ | **Consumers** | Portals / Weaver | Edge AI stack |
 
 ## SecOps Notice
 Never commit `secrets.h` to this repository. All physical node configurations must remain local to the deployment site.
@@ -123,12 +123,12 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 
 ### Hardware
 
-| Component | Model & Details |
-| --- | --- |
-| **Microcontroller** | Keyestudio ESP32 (XC3800) |
-| **Local Server** | Raspberry Pi 5 **16GB** (arm64) + AI HAT+ 2 (**Hailo-10H**, 40 TOPS) |
-| **Temp/Humidity** | DHT11 (XC4520) |
-| **Rain Sensor** | Duinotech Rain Sensor (XC4603) |
+ | Component | Model & Details |
+ | --- | --- |
+ | **Microcontroller** | Keyestudio ESP32 (XC3800) |
+ | **Local Server** | Raspberry Pi 5 **16GB** (arm64) + AI HAT+ 2 (**Hailo-10H**, 40 TOPS) |
+ | **Temp/Humidity** | DHT11 (XC4520) |
+ | **Rain Sensor** | Duinotech Rain Sensor (XC4603) |
 
 ### Software & Infrastructure
 
@@ -140,17 +140,17 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 
 ### Wiring Reference
 
-| Sensor | Module Pin | ESP32 Pin | Notes |
-| --- | --- | --- | --- |
-| **DHT11** | S | GPIO4 | Ensure empty rows between pins to prevent shorts |
-| **DHT11** | V | 5V | Direct to ESP32 currently |
-| **DHT11** | G | GND | Direct to ESP32 currently |
-| **Rain Sensor** | VCC | 5V Rail | Powered from shared breadboard rail |
-| **Rain Sensor** | GND | GND Rail | Grounded to shared breadboard rail |
-| **Rain Sensor** | AO | GPIO34 | ADC-capable input |
-| **Rain Sensor** | DO | N/A | Unconnected |
+ | Sensor | Module Pin | ESP32 Pin | Notes |
+ | --- | --- | --- | --- |
+ | **DHT11** | S | GPIO4 | Ensure empty rows between pins to prevent shorts |
+ | **DHT11** | V | 5V | Direct to ESP32 currently |
+ | **DHT11** | G | GND | Direct to ESP32 currently |
+ | **Rain Sensor** | VCC | 5V Rail | Powered from shared breadboard rail |
+ | **Rain Sensor** | GND | GND Rail | Grounded to shared breadboard rail |
+ | **Rain Sensor** | AO | GPIO34 | ADC-capable input |
+ | **Rain Sensor** | DO | N/A | Unconnected |
 
-> **âš ï¸ Warning:** Be incredibly careful with DHT11 pin placement. Placing S, V, and G in the same breadboard row will short the power to ground, causing a Pi 5 USB over-current event and knocking peripherals offline.
+> **âš ï¸ Warning:** Be incredibly careful with DHT11 pin placement. Placing S, V, and G in the same breadboard row will short the power to ground, causing a Pi 5 USB over-current event and knocking peripherals offline.
 
 ### Known Issues & Troubleshooting
 
@@ -171,10 +171,10 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 
 ---
 
-For the full consolidated setup guide, see `garden-sensor-network-setup.md` (not yet published â€” the previous link pointed to a non-existent path).
+For the full consolidated setup guide, see `garden-sensor-network-setup.md` (not yet published  the previous link pointed to a non-existent path).
 
 Wayne Roberts, Coastal Alpine Tech Limited
 
 ## License
 
-Proprietary â€” Coastal Alpine Tech Limited. See [LICENSE](./LICENSE).
+Proprietary  Coastal Alpine Tech Limited. See [LICENSE](./LICENSE).
