@@ -1,4 +1,4 @@
-# Sovereign-Edge-Firmware — install notes
+# Sovereign-Edge-Firmware - install notes
 
 **Coastal Alpine Tech Limited** (pre-seed). This repo is **ESP32 / Arduino firmware**, not a Python package.
 

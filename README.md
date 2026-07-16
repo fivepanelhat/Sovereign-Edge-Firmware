@@ -12,10 +12,9 @@
 
 > Sovereign hybrid edge AI for NZ farms and founders - local-first + multi-model, Te Mana Raraunga aligned - collaborating with Venture Taranaki, startups.com investors and Kotahitanga Investment Fund (HITL + cultural advisory for formal approaches).
 
-**Agents inform, draft, prepare, monitor, and remind. Humans advise, sign, file, send, and pay.**  
+**Agents inform, draft, prepare, monitor, and remind. Humans advise, sign, file, send, and pay.** 
 Anti-hallucination policy: [`.github/agent-fleet/anti-hallucination.md`](./.github/agent-fleet/anti-hallucination.md) | Congruence: [`CAT_CONGRUENCE.md`](./CAT_CONGRUENCE.md)
 <!-- END CAT_CONGRUENCE_SNIPPET -->
-
 
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary--Commercial-blue.svg)](./LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-ESP32%20%2B%20RPi%205-0078D6)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
@@ -42,65 +41,63 @@ Anti-hallucination policy: [`.github/agent-fleet/anti-hallucination.md`](./.gith
 
 ![Banner](assets/social_preview.png)
 
-
-**Coastal Alpine Tech Limited**  pre-seed startup, New Plymouth, Taranaki, Aotearoa New Zealand.
-
+**Coastal Alpine Tech Limited** pre-seed startup, New Plymouth, Taranaki, Aotearoa New Zealand.
 
 Firmware repository for ESP32 edge nodes operating within the Sovereign AI Stack.
 
 ## Architecture Overview
 
-> **Diagrams:** Architecture images and Mermaid maps describe the **target product architecture** for this pre-seed stack. They are engineering design maps  not claims of large-scale commercial fleet deployment.
+> **Diagrams:** Architecture images and Mermaid maps describe the **target product architecture** for this pre-seed stack. They are engineering design maps not claims of large-scale commercial fleet deployment.
 
 Field nodes run on **ESP32** with mTLS MQTT into a **Raspberry Pi 5 16GB** hub (AI HAT+ 2 / Hailo-10H capable). Sensor data stays on the local sovereign network.
 
-![Sovereign Edge Firmware architecture  liquid glass overview](assets/architecture_overview.png)
+![Sovereign Edge Firmware architecture liquid glass overview](assets/architecture_overview.png)
 
 ### System map
 
 ```mermaid
 %%{init: {
-  "theme": "dark",
-  "themeVariables": {
-    "fontSize": "16px",
-    "fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif",
-    "primaryColor": "#0ea5e9",
-    "primaryTextColor": "#f8fafc",
-    "primaryBorderColor": "#38bdf8",
-    "lineColor": "#67e8f9",
-    "secondaryColor": "#1e293b",
-    "tertiaryColor": "#0f172a",
-    "clusterBkg": "#0b1220cc",
-    "clusterBorder": "#38bdf880",
-    "titleColor": "#e2e8f0"
-  },
-  "flowchart": {
-    "nodeSpacing": 40,
-    "rankSpacing": 48,
-    "padding": 20,
-    "htmlLabels": true,
-    "curve": "basis"
-  }
+ "theme": "dark",
+ "themeVariables": {
+ "fontSize": "16px",
+ "fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif",
+ "primaryColor": "#0ea5e9",
+ "primaryTextColor": "#f8fafc",
+ "primaryBorderColor": "#38bdf8",
+ "lineColor": "#67e8f9",
+ "secondaryColor": "#1e293b",
+ "tertiaryColor": "#0f172a",
+ "clusterBkg": "#0b1220cc",
+ "clusterBorder": "#38bdf880",
+ "titleColor": "#e2e8f0"
+ },
+ "flowchart": {
+ "nodeSpacing": 40,
+ "rankSpacing": 48,
+ "padding": 20,
+ "htmlLabels": true,
+ "curve": "basis"
+ }
 }}%%
 flowchart LR
 
-    classDef sense fill:#052e16,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-    classDef edge fill:#0c4a6e,stroke:#38bdf8,stroke-width:2px,color:#f0f9ff
-    classDef core fill:#134e4a,stroke:#2dd4bf,stroke-width:2px,color:#f0fdfa
-    classDef act fill:#422006,stroke:#fbbf24,stroke-width:2px,color:#fffbeb
-    classDef store fill:#1e1b4b,stroke:#a5b4fc,stroke-width:2px,color:#eef2ff
-    classDef ai fill:#3b0764,stroke:#e879f9,stroke-width:2px,color:#fdf4ff
-    classDef app fill:#1e1b4b,stroke:#c4b5fd,stroke-width:2px,color:#eef2ff
+ classDef sense fill:#052e16,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
+ classDef edge fill:#0c4a6e,stroke:#38bdf8,stroke-width:2px,color:#f0f9ff
+ classDef core fill:#134e4a,stroke:#2dd4bf,stroke-width:2px,color:#f0fdfa
+ classDef act fill:#422006,stroke:#fbbf24,stroke-width:2px,color:#fffbeb
+ classDef store fill:#1e1b4b,stroke:#a5b4fc,stroke-width:2px,color:#eef2ff
+ classDef ai fill:#3b0764,stroke:#e879f9,stroke-width:2px,color:#fdf4ff
+ classDef app fill:#1e1b4b,stroke:#c4b5fd,stroke-width:2px,color:#eef2ff
 
-    S["Sensors<br/>DHT | rain | probes"] --> ESP["ESP32 firmware<br/>mTLS | JWT"]
-    ESP --> MQTT["Mosquitto broker"]
-    MQTT --> PI["RPi 5 16GB hub<br/>Node-RED | InfluxDB"]
-    PI --> PORTAL["Portals / Weaver<br/>optional consumers"]
+ S["Sensors<br/>DHT | rain | probes"] --> ESP["ESP32 firmware<br/>mTLS | JWT"]
+ ESP --> MQTT["Mosquitto broker"]
+ MQTT --> PI["RPi 5 16GB hub<br/>Node-RED | InfluxDB"]
+ PI --> PORTAL["Portals / Weaver<br/>optional consumers"]
 
-    class S sense
-    class ESP act
-    class MQTT,PI edge
-    class PORTAL core
+ class S sense
+ class ESP act
+ class MQTT,PI edge
+ class PORTAL core
 ```
 
  | Layer | Components | Role |
@@ -150,7 +147,7 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
  | **Rain Sensor** | AO | GPIO34 | ADC-capable input |
  | **Rain Sensor** | DO | N/A | Unconnected |
 
-> **âš ï¸ Warning:** Be incredibly careful with DHT11 pin placement. Placing S, V, and G in the same breadboard row will short the power to ground, causing a Pi 5 USB over-current event and knocking peripherals offline.
+> ** Warning:** Be incredibly careful with DHT11 pin placement. Placing S, V, and G in the same breadboard row will short the power to ground, causing a Pi 5 USB over-current event and knocking peripherals offline.
 
 ### Known Issues & Troubleshooting
 
@@ -171,10 +168,10 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 
 ---
 
-For the full consolidated setup guide, see `garden-sensor-network-setup.md` (not yet published  the previous link pointed to a non-existent path).
+For the full consolidated setup guide, see `garden-sensor-network-setup.md` (not yet published the previous link pointed to a non-existent path).
 
 Wayne Roberts, Coastal Alpine Tech Limited
 
 ## License
 
-Proprietary  Coastal Alpine Tech Limited. See [LICENSE](./LICENSE).
+Proprietary Coastal Alpine Tech Limited. See [LICENSE](./LICENSE).
