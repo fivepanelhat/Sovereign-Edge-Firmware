@@ -16,6 +16,38 @@
 Anti-hallucination policy: [`.github/agent-fleet/anti-hallucination.md`](./.github/agent-fleet/anti-hallucination.md) | Congruence: [`CAT_CONGRUENCE.md`](./CAT_CONGRUENCE.md)
 <!-- END CAT_CONGRUENCE_SNIPPET -->
 
+<!-- BEGIN PROBLEMS_SOLUTIONS_ECONOMY -->
+## Problems we are solving
+
+**Sovereign-Edge-Firmware** is the ESP32 field layer plus hub path for the sovereign sensor network.
+
+1. **Insecure field links** - Sensors without mTLS / disciplined MQTT are attack surface on-farm.
+2. **Hub/spoke drift** - ESP32 nodes and RPi hubs need one documented firmware contract.
+3. **Cloud-first IoT kits** - Consumer IoT defaults fight data sovereignty goals.
+4. **Pilot fragility** - Hardware without clear pinout and service docs fails first install.
+
+## Solution we have built
+
+| Built capability | What it does |
+| :--- | :--- |
+| **ESP32 firmware** | Field nodes for the Kiwi Edge sensor fabric |
+| **mTLS MQTT path** | Secure telemetry into local hub |
+| **RPi hub pairing** | Aligns with Core / portal deployments |
+| **Install docs** | Field-safe setup notes for pilots |
+
+### Local (Taranaki) and national (Aotearoa) economic benefits
+
+| Lever | Benefit |
+| :--- | :--- |
+| **Regional R&D HQ** | Product design and IP stay in New Plymouth / Taranaki - not only Auckland/offshore SaaS |
+| **Primary-sector productivity** | On-farm and rural tools aim to cut waste, protect consents, and support export competitiveness |
+| **Skilled employment pathways** | Edge install, field support, agritech ops, software, compliance, and cultural advisory roles as pilots scale |
+| **Data sovereignty** | Te Mana Raraunga-aligned local custody keeps high-value operational data onshore |
+| **HITL jobs quality** | Agents **inform / draft / prepare / monitor / remind**; humans **advise / sign / file / send / pay** - augment people, do not fake full autonomy |
+
+**Stage honesty (pre-seed):** Impact today is founder R&D, near-term contractors, and EDA/partner leverage. Permanent multi-region payroll follows paid pilots and revenue - we do not invent headcount claims.
+<!-- END PROBLEMS_SOLUTIONS_ECONOMY -->
+
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary--Commercial-blue.svg)](./LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-ESP32%20%2B%20RPi%205-0078D6)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
 [![Arduino](https://img.shields.io/badge/Build-Arduino%20%7C%20PlatformIO-00979D?logo=platformio&logoColor=white)](https://platformio.org)
