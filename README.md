@@ -1,5 +1,19 @@
 # Sovereign Edge Firmware
 
+[![Status](https://img.shields.io/badge/Status-Pending%20live%20telemetry-f59e0b)](#to-do-before-this-is-complete)
+
+> **Pending live telemetry — not yet a shipped field capability.**
+>
+> The firmware compiles and the mTLS MQTT path is designed, but it has **not**
+> been validated end to end on a deployed node. Nothing here should be read as
+> proven in the field until a real node is streaming telemetry into the hub.
+>
+> Outstanding work: [to-do before this is complete](#to-do-before-this-is-complete).
+
+<!-- Placed above the congruence snippet on purpose: everything between the
+     BEGIN/END markers below is synced across repos and would overwrite an
+     edit made inside it. -->
+
 <!-- BEGIN CAT_CONGRUENCE_SNIPPET -->
 ## Coastal Alpine Tech portfolio
 
@@ -188,15 +202,21 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 * **Busy Serial Port:** If an upload fails, the IDE's Java process will often hold `/dev/ttyUSB0` hostage. Closing the Serial Monitor usually releases the lock.
 * **Compiler/Linker Errors:** Repeated USB upload interruptions can eventually corrupt the ESP32 board package files (throwing EOF or getApbFrequency errors). Resolve this by deleting `~/.arduino15/packages/esp32` and reinstalling via the Boards Manager.
 
-### Project Roadmap
+## To-do before this is complete
 
-* Confirm fresh ESP32 board package reinstall completes and compiling succeeds.
-* Re-upload the combined sketch (DHT11 + rain sensor + MQTT) with a healthy compiler.
-* Debug intermittent DHT11 reads (test migrating power from direct-ESP32 to the shared 5V rail).
-* Complete Node-RED wiring for `garden/sensor1/rain` directly to InfluxDB.
-* Integrate physical light and moisture sensors into the enclosure.
-* Deploy Grafana to visualize the InfluxDB metrics.
-* Configure persistent headless boot for all Pi services (`systemctl enable`).
+This repository is **pending live telemetry**. Until the last item is ticked,
+the firmware should be described as designed and compiling, not as a proven
+field capability.
+
+- [ ] Confirm a fresh ESP32 board package reinstall completes and compiles cleanly
+- [ ] Re-upload the combined sketch (DHT11 + rain sensor + MQTT) with a healthy compiler
+- [ ] Debug intermittent DHT11 reads (test migrating power from direct-ESP32 to the shared 5V rail)
+- [ ] Complete Node-RED wiring for `garden/sensor1/rain` directly to InfluxDB
+- [ ] Integrate physical light and moisture sensors into the enclosure
+- [ ] Deploy Grafana to visualise the InfluxDB metrics
+- [ ] Configure persistent headless boot for all Pi services (`systemctl enable`)
+- [ ] **Capture live telemetry from a deployed node** — the gate for marking this
+      repository complete and removing the pending badge above
 
 ---
 
