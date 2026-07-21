@@ -1,149 +1,41 @@
 # Sovereign Edge Firmware
 
-<!-- BEGIN CAT_CONGRUENCE_SNIPPET -->
-## Coastal Alpine Tech portfolio
+[![Privacy](https://img.shields.io/badge/Privacy-Local--first%20%2B%20Privacy%20Act%202020-00247D)](./COMPLIANCE.md)
+[![Security](https://img.shields.io/badge/Security-No%20silent%20exfil%20%2B%20SecOps-dc2626)](./SECURITY.md)
+[![Governance](https://img.shields.io/badge/Governance-HITL%20%2B%20Te%20Mana%20Raraunga-0f766e)](./COMPLIANCE.md)
 
-[![Stage](https://img.shields.io/badge/Stage-Pre--seed-8B5CF6)](https://github.com/fivepanelhat/fivepanelhat)
-[![Hybrid](https://img.shields.io/badge/Hybrid-Edge%20%2B%20Multi--model-0f766e)](https://github.com/fivepanelhat/fivepanelhat)
-[![HITL](https://img.shields.io/badge/HITL-Draft%2FPrepare%20only-dc2626)](./.github/agent-fleet/AGENTS.md)
-[![Te Mana Raraunga](https://img.shields.io/badge/Te%20Mana%20Raraunga-Aligned-0f766e)](https://github.com/fivepanelhat/fivepanelhat)
 
-**Part of the [Kiwi Edge AI Stack](https://github.com/fivepanelhat/fivepanelhat)** | Founder OS: [NZ-Start-Up](https://github.com/fivepanelhat/NZ-Start-Up) | Agent policy: [`.github/agent-fleet/`](./.github/agent-fleet/)
+![CI](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/secops.yml/badge.svg?branch=main)
 
-> Sovereign hybrid edge AI for NZ farms and founders - local-first + multi-model, Te Mana Raraunga aligned - collaborating with Venture Taranaki, startups.com investors and Kotahitanga Investment Fund (HITL + cultural advisory for formal approaches).
+![Hardware Target](https://img.shields.io/badge/Hardware-Raspberry%20Pi%205%2016GB-C11A5B?style=flat-square&logo=raspberry-pi&logoColor=white) ![NPU Acceleration](https://img.shields.io/badge/NPU-Hailo--10H%20Accelerated-005A9C?style=flat-square) ![Protocols](https://img.shields.io/badge/Interop-MQTT%20%7C%20OPC--UA-orange?style=flat-square)
 
-**Agents inform, draft, prepare, monitor, and remind. Humans advise, sign, file, send, and pay.** 
-Anti-hallucination policy: [`.github/agent-fleet/anti-hallucination.md`](./.github/agent-fleet/anti-hallucination.md) | Congruence: [`CAT_CONGRUENCE.md`](./CAT_CONGRUENCE.md)
-<!-- END CAT_CONGRUENCE_SNIPPET -->
+**Coastal Alpine Tech Limited**
+Firmware repository for ESP32 edge nodes operating within the Sovereign AI Stack. 
 
-<!-- BEGIN PROBLEMS_SOLUTIONS_ECONOMY -->
-## Problems we are solving
-
-**Sovereign-Edge-Firmware** is the ESP32 field layer plus hub path for the sovereign sensor network.
-
-1. **Insecure field links** - Sensors without mTLS / disciplined MQTT are attack surface on-farm.
-2. **Hub/spoke drift** - ESP32 nodes and RPi hubs need one documented firmware contract.
-3. **Cloud-first IoT kits** - Consumer IoT defaults fight data sovereignty goals.
-4. **Pilot fragility** - Hardware without clear pinout and service docs fails first install.
-
-## Solution we have built
-
-| Built capability | What it does |
-| :--- | :--- |
-| **ESP32 firmware** | Field nodes for the Kiwi Edge sensor fabric |
-| **mTLS MQTT path** | Secure telemetry into local hub |
-| **RPi hub pairing** | Aligns with Core / portal deployments |
-| **Install docs** | Field-safe setup notes for pilots |
-
-### Local (Taranaki) and national (Aotearoa) economic benefits
-
-| Lever | Benefit |
-| :--- | :--- |
-| **Regional R&D HQ** | Product design and IP stay in New Plymouth / Taranaki - not only Auckland/offshore SaaS |
-| **Primary-sector productivity** | On-farm and rural tools aim to cut waste, protect consents, and support export competitiveness |
-| **Skilled employment pathways** | Edge install, field support, agritech ops, software, compliance, and cultural advisory roles as pilots scale |
-| **Data sovereignty** | Te Mana Raraunga-aligned local custody keeps high-value operational data onshore |
-| **HITL jobs quality** | Agents **inform / draft / prepare / monitor / remind**; humans **advise / sign / file / send / pay** - augment people, do not fake full autonomy |
-
-**Stage honesty (pre-seed):** Impact today is founder R&D, near-term contractors, and EDA/partner leverage. Permanent multi-region payroll follows paid pilots and revenue - we do not invent headcount claims.
-<!-- END PROBLEMS_SOLUTIONS_ECONOMY -->
-
-[![License: Proprietary](https://img.shields.io/badge/License-Proprietary--Commercial-blue.svg)](./LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-ESP32%20%2B%20RPi%205-0078D6)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
-[![Arduino](https://img.shields.io/badge/Build-Arduino%20%7C%20PlatformIO-00979D?logo=platformio&logoColor=white)](https://platformio.org)
-
-[![Linux](https://img.shields.io/badge/Linux-Ubuntu%2C%20Debian%2C%20Fedora-FCC624?logo=linux&logoColor=black)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
-[![Windows](https://img.shields.io/badge/Windows-10%2B-0078D4?logo=windows&logoColor=white)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
-[![macOS](https://img.shields.io/badge/macOS-12%2B-000000?logo=apple&logoColor=white)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
-[![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-5%20%2816GB%29-C11A5B?logo=raspberry-pi&logoColor=white)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
-
-[![Claude AI](https://img.shields.io/badge/Claude-Anthropic-9C27B0)](https://anthropic.com)
-[![Gemini](https://img.shields.io/badge/Gemini-Google-4285F4?logo=google&logoColor=white)](https://gemini.google.com)
-[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-00A67E)](https://openai.com)
-[![Grok](https://img.shields.io/badge/Grok-xAI-000000)](https://x.ai)
-
-[![Hailo NPU](https://img.shields.io/badge/NPU-Hailo--10H-005A9C)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
-[![MQTT](https://img.shields.io/badge/MQTT-Mosquitto%20mTLS-3C5280?logo=mqtt&logoColor=white)](https://mosquitto.org)
-[![Data Sovereign](https://img.shields.io/badge/Data%20Sovereign-NZ%20Bound-00247D)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware)
-
-[![CI Status](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/ci-scan.yml/badge.svg?branch=master)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/ci-scan.yml)
-[![SecOps](https://img.shields.io/github/actions/workflow/status/fivepanelhat/Sovereign-Edge-Firmware/secops.yml?branch=master&label=SecOps&color=success)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/secops.yml)
-[![RedTeam](https://img.shields.io/github/actions/workflow/status/fivepanelhat/Sovereign-Edge-Firmware/redteam.yml?branch=master&label=RedTeam&color=critical)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/actions/workflows/redteam.yml)
-[![Dependencies](https://img.shields.io/badge/Dependencies-Monitored-brightgreen?logo=dependabot)](https://github.com/fivepanelhat/Sovereign-Edge-Firmware/security/dependabot)
-
-![Banner](assets/social_preview.png)
-
-**Coastal Alpine Tech Limited** pre-seed startup, New Plymouth, Taranaki, Aotearoa New Zealand.
-
-Firmware repository for ESP32 edge nodes operating within the Sovereign AI Stack.
-
-## Architecture Overview
-
-> **Diagrams:** Architecture images and Mermaid maps describe the **target product architecture** for this pre-seed stack. They are engineering design maps not claims of large-scale commercial fleet deployment.
-
-Field nodes run on **ESP32** with mTLS MQTT into a **Raspberry Pi 5 16GB** hub (AI HAT+ 2 / Hailo-10H capable). Sensor data stays on the local sovereign network.
-
-![Sovereign Edge Firmware architecture liquid glass overview](assets/architecture_overview.png)
-
-### System map
-
-```mermaid
-%%{init: {
- "theme": "dark",
- "themeVariables": {
- "fontSize": "16px",
- "fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif",
- "primaryColor": "#0ea5e9",
- "primaryTextColor": "#f8fafc",
- "primaryBorderColor": "#38bdf8",
- "lineColor": "#67e8f9",
- "secondaryColor": "#1e293b",
- "tertiaryColor": "#0f172a",
- "clusterBkg": "#0b1220cc",
- "clusterBorder": "#38bdf880",
- "titleColor": "#e2e8f0"
- },
- "flowchart": {
- "nodeSpacing": 40,
- "rankSpacing": 48,
- "padding": 20,
- "htmlLabels": true,
- "curve": "basis"
- }
-}}%%
-flowchart LR
-
- classDef sense fill:#052e16,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
- classDef edge fill:#0c4a6e,stroke:#38bdf8,stroke-width:2px,color:#f0f9ff
- classDef core fill:#134e4a,stroke:#2dd4bf,stroke-width:2px,color:#f0fdfa
- classDef act fill:#422006,stroke:#fbbf24,stroke-width:2px,color:#fffbeb
- classDef store fill:#1e1b4b,stroke:#a5b4fc,stroke-width:2px,color:#eef2ff
- classDef ai fill:#3b0764,stroke:#e879f9,stroke-width:2px,color:#fdf4ff
- classDef app fill:#1e1b4b,stroke:#c4b5fd,stroke-width:2px,color:#eef2ff
-
- S["Sensors<br/>DHT | rain | probes"] --> ESP["ESP32 firmware<br/>mTLS | JWT"]
- ESP --> MQTT["Mosquitto broker"]
- MQTT --> PI["RPi 5 16GB hub<br/>Node-RED | InfluxDB"]
- PI --> PORTAL["Portals / Weaver<br/>optional consumers"]
-
- class S sense
- class ESP act
- class MQTT,PI edge
- class PORTAL core
-```
-
- | Layer | Components | Role |
- | :--- | :--- | :--- |
- | **Node** | ESP32 + sensors | Field capture |
- | **Security** | mTLS + local JWT | No open MQTT |
- | **Hub** | RPi 5 16GB | Broker | DB | UI |
- | **Consumers** | Portals / Weaver | Edge AI stack |
+## Architecture
+This firmware is designed to operate completely off-grid, utilizing local ES256 JWT authentication via the Blue-Moon-Portal, communicating over mTLS-secured MQTT.
 
 ## SecOps Notice
 Never commit `secrets.h` to this repository. All physical node configurations must remain local to the deployment site.
 
----
 
+<!-- BEGIN PRIVACY_SECURITY_GOVERNANCE -->
+## Privacy · Security · Governance
+
+Coastal Alpine Tech products treat operational and personal data as **taonga**. Defaults favour **local-first** operation, **purpose-limited** collection, and **Human-in-the-Loop** for high-stakes actions.
+
+| Pillar | Commitment |
+| :--- | :--- |
+| **Privacy** | Local-first / offline-capable where practical; Privacy Act 2020 awareness; cloud and third-party AI only when **opt-in and labelled** |
+| **Security** | No silent exfiltration of tenant or personal data; owner-controlled keys; SecOps / dependency hygiene on the fleet cadence |
+| **Governance** | Agents **inform, draft, prepare**; humans **advise, sign, file, send, and pay**. Te Mana Raraunga spirit for Māori data sovereignty |
+
+**Agents inform, draft, prepare, monitor, and remind. Humans advise, sign, file, send, and pay.**
+
+Fleet policy: [fivepanelhat / Kiwi Edge AI Stack](https://github.com/fivepanelhat/fivepanelhat) · Product detail: [`COMPLIANCE.md`](./COMPLIANCE.md) · [`SECURITY.md`](./SECURITY.md) (where present) · [`CAT_CONGRUENCE.md`](./CAT_CONGRUENCE.md) (where present)
+<!-- END PRIVACY_SECURITY_GOVERNANCE -->
+
+---
 ## Garden Sensor Node (Arduino IDE Build)
 
 A local, decentralized IoT sensor network for monitoring garden environmental metrics. This node publishes data to a Raspberry Pi 5 via MQTT, processed by Node-RED, and stored in InfluxDB 2 for local data sovereignty.
@@ -152,12 +44,12 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 
 ### Hardware
 
- | Component | Model & Details |
- | --- | --- |
- | **Microcontroller** | Keyestudio ESP32 (XC3800) |
- | **Local Server** | Raspberry Pi 5 **16GB** (arm64) + AI HAT+ 2 (**Hailo-10H**, 40 TOPS) |
- | **Temp/Humidity** | DHT11 (XC4520) |
- | **Rain Sensor** | Duinotech Rain Sensor (XC4603) |
+| Component | Model & Details |
+| --- | --- |
+| **Microcontroller** | Keyestudio ESP32 (XC3800) |
+| **Local Server** | Raspberry Pi 5 (arm64) + AI HAT 2+ |
+| **Temp/Humidity** | DHT11 (XC4520) |
+| **Rain Sensor** | Duinotech Rain Sensor (XC4603) |
 
 ### Software & Infrastructure
 
@@ -169,17 +61,17 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 
 ### Wiring Reference
 
- | Sensor | Module Pin | ESP32 Pin | Notes |
- | --- | --- | --- | --- |
- | **DHT11** | S | GPIO4 | Ensure empty rows between pins to prevent shorts |
- | **DHT11** | V | 5V | Direct to ESP32 currently |
- | **DHT11** | G | GND | Direct to ESP32 currently |
- | **Rain Sensor** | VCC | 5V Rail | Powered from shared breadboard rail |
- | **Rain Sensor** | GND | GND Rail | Grounded to shared breadboard rail |
- | **Rain Sensor** | AO | GPIO34 | ADC-capable input |
- | **Rain Sensor** | DO | N/A | Unconnected |
+| Sensor | Module Pin | ESP32 Pin | Notes |
+| --- | --- | --- | --- |
+| **DHT11** | S | GPIO4 | Ensure empty rows between pins to prevent shorts |
+| **DHT11** | V | 5V | Direct to ESP32 currently |
+| **DHT11** | G | GND | Direct to ESP32 currently |
+| **Rain Sensor** | VCC | 5V Rail | Powered from shared breadboard rail |
+| **Rain Sensor** | GND | GND Rail | Grounded to shared breadboard rail |
+| **Rain Sensor** | AO | GPIO34 | ADC-capable input |
+| **Rain Sensor** | DO | N/A | Unconnected |
 
-> ** Warning:** Be incredibly careful with DHT11 pin placement. Placing S, V, and G in the same breadboard row will short the power to ground, causing a Pi 5 USB over-current event and knocking peripherals offline.
+> **⚠️ Warning:** Be incredibly careful with DHT11 pin placement. Placing S, V, and G in the same breadboard row will short the power to ground, causing a Pi 5 USB over-current event and knocking peripherals offline.
 
 ### Known Issues & Troubleshooting
 
@@ -200,10 +92,6 @@ A local, decentralized IoT sensor network for monitoring garden environmental me
 
 ---
 
-For the full consolidated setup guide, see `garden-sensor-network-setup.md` (not yet published the previous link pointed to a non-existent path).
+For the full consolidated setup guide, see [garden-sensor-network-setup.md](../docs/garden-sensor-network-setup.md).
 
 Wayne Roberts, Coastal Alpine Tech Limited
-
-## License
-
-Proprietary Coastal Alpine Tech Limited. See [LICENSE](./LICENSE).
