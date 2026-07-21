@@ -2,7 +2,7 @@
 
 <<<<<<< HEAD
 **Coastal Alpine Tech Limited** | **Product:** Sovereign Edge Firmware
-Last updated: 19 July 2026
+Last updated: 22 July 2026
 
 > Super Grok compliance briefing (19 July 2026). This is **alignment evidence**, not a compliance certificate or legal advice.
 
@@ -54,31 +54,28 @@ Last updated: 2026-07-21
 
 ## Privacy / Security / Governance (fleet mandatory)
 
+**Last reviewed (fleet block):** 22 July 2026
+
 | Pillar | Standard |
 | --- | --- |
-| **Privacy** | Local-first default; purpose-limited collection; Privacy Act 2020; Te Mana Raraunga spirit; third-party processing only when opt-in and disclosed |
-| **Security** | No silent exfil; owner-controlled credentials; least privilege; SecOps / red-team cadence on fleet repos where CI is present |
-| **Governance** | HITL for high-stakes (billing, legal, production migrations, compliance templates, external send); agents draft only |
+| **No data sales** | **Personal and customer operational data is not sold to third parties** for ads, data brokerage, or unrelated monetisation. |
+| **Privacy** | Designed to operate in accordance with the **New Zealand Privacy Act 2020** (IPPs; IPP 3A awareness). Local-first default; purpose-limited collection; third-party processing only when opt-in and disclosed. |
+| **Te Mana Raraunga** | Designed to operate **in accordance with Te Mana Raraunga** Māori data sovereignty principles where Māori / community data interests apply. |
+| **NZ AI safety** | Aligned with NZ AI safety / responsible AI posture: human oversight for high-stakes use, transparency of AI processing, Algorithm Charter spirit, no silent training on private customer content without consent. |
+| **Security** | No silent exfil; owner-controlled credentials; least privilege; SecOps / red-team cadence where CI is present. |
+| **Governance** | HITL for high-stakes; agents draft only; humans sign / send / pay. |
+| **Assurance path** | **SOC 2** Type I/II and **ISO/IEC 42001** treated as multi-tenant SaaS **alignment targets**, not claimed certifications unless a formal report is published. |
+| **Regions** | Australia, Asia-Pacific, and European frameworks mapped in [`COMPLIANCE_REGIONS.md`](./COMPLIANCE_REGIONS.md) under a **NZ AI safety-first** baseline. |
 
-### New Zealand baseline
-- Privacy Act 2020 (IPP awareness; indirect collection notification rules as applicable)
-- Te Mana Raraunga principles as primary Māori data sovereignty lens
-- Sector statutes called out in product-specific sections below when relevant
+> This document is **alignment evidence**, not a compliance certificate, audit report, or legal advice.
 
-### Core technical controls
-- Local-first / offline-native processing by default
-- Owner-controlled encryption keys where implemented
-- No silent data exfiltration to third parties
-- Explicit HITL gates for high-impact and culturally sensitive decisions
-- Prefer NZ / Oceania residency for any cloud components
 
-### Limitations
-- Not legal advice; not ISO/SOC/EU AI Act certification
-- Confirm statute application with NZ counsel before regulated marketing claims
-
----
 ## Product notes
 
 See README for product-specific controls.
 
 >>>>>>> d6238bf (docs: emphasise privacy, security, and governance fleet-wide)
+
+### Data sales
+
+**We do not sell personal or customer operational data to third parties.**
