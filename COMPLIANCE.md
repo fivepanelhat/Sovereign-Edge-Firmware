@@ -52,7 +52,7 @@ Last updated: 2026-07-21
 
 > Alignment evidence for Super Grok / CAT fleet reviews — **not** a compliance certificate or legal advice.
 
-## Privacy · Security · Governance (fleet mandatory)
+## Privacy / Security / Governance (fleet mandatory)
 
 | Pillar | Standard |
 | --- | --- |
