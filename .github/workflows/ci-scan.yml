@@ -48,7 +48,7 @@ jobs:
               sudo apt-get update -qq && sudo apt-get install -y -qq portaudio19-dev || true
               pip install -r requirements.txt
             fi
-            python -m pytest tests/ -v --tb=short || true
+            python -m pytest tests -q
           else
-            echo "No unit tests found - skip."
+            echo "No pytest suite at tests/ - lint-only scan."
           fi
